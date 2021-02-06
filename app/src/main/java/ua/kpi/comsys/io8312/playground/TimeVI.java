@@ -39,9 +39,10 @@ public class TimeVI {
 
     @Override
     public String toString() {
-        return ((hours >= 12)?(hours - 12 + ""):(hours)) + ":"
-                + minutes + ":"
-                + seconds +
+        return ((hours <= 9 || hours - 12 <= 9)?"0":"") +
+                ((hours >= 12)?(hours - 12 + ""):(hours)) + ":"
+                + ((minutes<=9)?"0" + minutes:minutes) + ":"
+                + ((seconds<=9)?"0" + seconds:seconds) +
                 (hours >= 12?" RM":" AM");
     }
 

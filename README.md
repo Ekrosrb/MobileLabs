@@ -22,11 +22,7 @@ TimeVI subTime(TimeVI time) - возвращает разницу времени
 TimeVI subTime(TimeVI time1, TimeVI time2) - возвращает разницу времени time1 - time2  
   
 Вывод результатов теста на экран.  
-  
-app/src/main/java/ua.kpi/comsys.io8312/  
-app/src/main/res  
-  
-##Lab 1.1##  
-  
-Вывод данных на экран.  
+
+Ccылка на комит: https://github.com/Ekrosrb/MobileLabs/commit/de7301a3e6d4372dfeb8bb4025083ec4d4c5c058  
+
 

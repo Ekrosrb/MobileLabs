@@ -1,17 +1,21 @@
-## Project main/source directories ##
+# Mobile labs #
   
-app/src/main/java/ua.kpi/comsys.io8312/  
+by Ilnytsky Vladyslav IO-83  
+  
+## Project main/source directories ##  
+  
+app/src/main/java/ua.kpi.comsys.io8312/  
 app/src/main/res  
   
-Ссылка на комит: https://github.com/Ekrosrb/MobileLabs/commit/7f1bf836463cf24b8059348fae2fe49d026f38e1  
-  
-##Lab 1.1##  
+## Lab 1.1 ##  
   
 Вывод данных на экран  
   
-##Lab 1.2##
+Ссылка на комит: https://github.com/Ekrosrb/MobileLabs/commit/7f1bf836463cf24b8059348fae2fe49d026f38e1  
   
-app/src/main/java/ua.kpi/comsys.io8312/playground/  
+## Lab 1.2 ##
+  
+app/src/main/java/ua.kpi.comsys.io8312/playground/  
   
 Класс TimeVI для хранения времени.  
 Тест созданых методов:  

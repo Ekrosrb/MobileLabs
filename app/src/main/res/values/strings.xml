@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MobileLabs</string>
     <string name="info">Ільницький Владислав\nГрупа ІО-83\nІО-8312</string>
+    <string name="playground">Playground</string>
 </resources>

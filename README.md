@@ -32,3 +32,12 @@ Ccылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/9e211
 Задание 2  
 Ccылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/de7301a3e6d4372dfeb8bb4025083ec4d4c5c058  
 
+## Lab 2 ##  
+
+Код первой лабораторной был перенесен в Lab1Fragment.  
+  
+Класс adapters/LabAdapter для управления вкладками.  
+Классы Lab1Fragment и Lab2Fragment для настройки и отображения содерщимого вкладок с первой и второй лабораторной соотвецтвенно.  
+
+ 
+

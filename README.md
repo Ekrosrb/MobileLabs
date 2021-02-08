@@ -42,5 +42,6 @@ Ccылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/de730
 Классы Lab1Fragment и Lab2Fragment для настройки и отображения содерщимого вкладок с первой и второй лабораторной соотвецтвенно.  
   
 Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/b18eb8287d17206298c204bcd075b974697a0c5e  
-
- 
+  
+Иконки для вкладок: https://github.com/Ekrosrb/MobileLabs/commit/b31312039ceb00ff322987cdd8943bd1200c7a36  
+  

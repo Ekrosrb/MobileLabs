@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         tabLayout.addTab(tabLayout.newTab().setText("Lab1"));
         tabLayout.addTab(tabLayout.newTab().setText("Lab2"));
+        tabLayout.getTabAt(0).setIcon(R.drawable.first_icon);
+        tabLayout.getTabAt(1).setIcon(R.drawable.second_icon);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         LabAdapter adapter = new LabAdapter(this, getSupportFragmentManager(),
                 tabLayout.getTabCount());

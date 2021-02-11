@@ -48,3 +48,16 @@ Ccылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/de730
   
 Иконки для вкладок: https://github.com/Ekrosrb/MobileLabs/commit/b31312039ceb00ff322987cdd8943bd1200c7a36  
   
+## Lab 3 ##   
+  
+Добавлена вкладка Lab3Fragment.  
+Классы Movie, MovieDto, Search, а так же библиотека gson - для парсинга и работы с json данными.  
+Класс MyFileReader - file in/out stream.  
+Класс MovieAdapter - управление и размещение вкладок с фильмами согласно заданию.  
+  
+XML:  
+list_item - вид одной вкладки с фильмом.  
+lab3_fragment - вкладка с 3 лабораторной.  
+  
+Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/pull/3/commits/61f6256f9cdbbd0043579692079a1e6ec5eaccd6  
+  

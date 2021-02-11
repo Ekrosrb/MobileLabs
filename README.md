@@ -59,5 +59,5 @@ XML:
 list_item - вид одной вкладки с фильмом.  
 lab3_fragment - вкладка с 3 лабораторной.  
   
-Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/pull/3/commits/61f6256f9cdbbd0043579692079a1e6ec5eaccd6  
+Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/1eaea20c1b2fedd16fb752bea9cd619daa5cec29    
   

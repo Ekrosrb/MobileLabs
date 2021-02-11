@@ -17,13 +17,14 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
-
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
         tabLayout.addTab(tabLayout.newTab().setText("Lab1"));
         tabLayout.addTab(tabLayout.newTab().setText("Lab2"));
+        tabLayout.addTab(tabLayout.newTab().setText("lab3"));
         tabLayout.getTabAt(0).setIcon(R.drawable.first_icon);
         tabLayout.getTabAt(1).setIcon(R.drawable.second_icon);
+        tabLayout.getTabAt(2).setIcon(R.drawable.third_icon);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         LabAdapter adapter = new LabAdapter(this, getSupportFragmentManager(),
                 tabLayout.getTabCount());

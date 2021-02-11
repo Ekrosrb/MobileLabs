@@ -3,7 +3,7 @@
 by Ilnytsky Vladyslav IO-83  
 
 ### Last version ###  
-https://drive.google.com/file/d/13BFWhAuLmJ_VOg9AwSMz3P6LL_8Q_fQO/view?usp=sharing
+https://drive.google.com/file/d/1yzuPQUyRuySKLEd6vAv_8ipArk8vlrF6/view?usp=sharing
   
 ## Project main/source directories ##  
   
@@ -47,4 +47,17 @@ Ccылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/de730
 Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/b18eb8287d17206298c204bcd075b974697a0c5e  
   
 Иконки для вкладок: https://github.com/Ekrosrb/MobileLabs/commit/b31312039ceb00ff322987cdd8943bd1200c7a36  
+  
+## Lab 3 ##   
+  
+Добавлена вкладка Lab3Fragment.  
+Классы Movie, MovieDto, Search, а так же библиотека gson - для парсинга и работы с json данными.  
+Класс MyFileReader - file in/out stream.  
+Класс MovieAdapter - управление и размещение вкладок с фильмами согласно заданию.  
+  
+XML:  
+list_item - вид одной вкладки с фильмом.  
+lab3_fragment - вкладка с 3 лабораторной.  
+  
+Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/pull/3/commits/61f6256f9cdbbd0043579692079a1e6ec5eaccd6  
   

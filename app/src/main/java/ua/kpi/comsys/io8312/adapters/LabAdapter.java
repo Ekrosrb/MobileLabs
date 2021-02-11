@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import ua.kpi.comsys.io8312.fragments.Lab1Fragment;
 import ua.kpi.comsys.io8312.fragments.Lab2Fragment;
+import ua.kpi.comsys.io8312.fragments.Lab3Fragment;
 
 public class LabAdapter extends FragmentPagerAdapter {
 
@@ -29,6 +30,9 @@ public class LabAdapter extends FragmentPagerAdapter {
                 break;
             case 1:
                 fragment = new Lab2Fragment();
+                break;
+            case 2:
+                fragment = new Lab3Fragment();
         }
         return fragment;
     }

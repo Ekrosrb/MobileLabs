@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileLabs">
+        <activity android:name=".activities.MovieDetailInfoActivity"/>
         <activity android:name=".activities.AddMovieActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,8 +1,13 @@
 package ua.kpi.comsys.io8312.utils;
 
 import android.content.Context;
+import android.util.JsonReader;
 
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,6 +21,7 @@ import java.util.List;
 
 import ua.kpi.comsys.io8312.dto.MovieDto;
 import ua.kpi.comsys.io8312.models.Movie;
+import ua.kpi.comsys.io8312.models.MovieInfo;
 import ua.kpi.comsys.io8312.models.Search;
 
 public class MyFileReader {
@@ -49,7 +55,7 @@ public class MyFileReader {
 
     public void init(){
         try {
-            if(!isFilePresent()) {
+            if(!isFilePresent(fileName)) {
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
                         context.openFileOutput("MovieList.txt", Context.MODE_PRIVATE)));
                 bw.write(getFilmJson());
@@ -60,6 +66,24 @@ public class MyFileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public MovieInfo getDetailInformation(String imdbID){
+        try {
+            if(!imdbID.isEmpty() && !imdbID.equals("none")) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(
+                        context.getAssets().open(imdbID + ".txt")));
+                String json = br.readLine();
+                br.close();
+                return new GsonBuilder().create().fromJson(json, MovieInfo.class);
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void write(MovieDto movieDto){
@@ -103,7 +127,7 @@ public class MyFileReader {
         }
     }
 
-    private boolean isFilePresent() {
+    private boolean isFilePresent(String fileName) {
         String path = context.getFilesDir() + "/" + fileName;
         File file = new File(path);
         return file.exists();

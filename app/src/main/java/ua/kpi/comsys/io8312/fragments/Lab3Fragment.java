@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 
 import ua.kpi.comsys.io8312.R;
 import ua.kpi.comsys.io8312.activities.AddMovieActivity;
+import ua.kpi.comsys.io8312.activities.MovieDetailInfoActivity;
 import ua.kpi.comsys.io8312.adapters.MovieAdapter;
 import ua.kpi.comsys.io8312.dto.MovieDto;
 import ua.kpi.comsys.io8312.utils.Global;
@@ -102,6 +104,16 @@ public class Lab3Fragment extends Fragment {
             builder.setMessage("Are you sure to delete this?").setPositiveButton("Yes", dialogClickListener)
                     .setNegativeButton("No", dialogClickListener).show();
             return true;
+        });
+
+        movieList.setOnItemClickListener((parent, view, position, id) -> {
+            TextView textView = view.findViewById(R.id.imdb_id);
+
+            if(!textView.getText().toString().isEmpty()){
+                Intent myIntent = new Intent(getActivity(), MovieDetailInfoActivity.class);
+                myIntent.putExtra("imdb", textView.getText().toString());
+                startActivity(myIntent);
+            }
         });
     }
 }

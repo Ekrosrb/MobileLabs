@@ -1,6 +1,8 @@
 package ua.kpi.comsys.io8312.dto;
 
-public class MovieDto {
+import java.io.Serializable;
+
+public class MovieDto implements Serializable {
     private  String title;
     private String year;
     private String imdbID;
@@ -15,8 +17,7 @@ public class MovieDto {
         this.poster = poster;
     }
 
-    public MovieDto() {
-    }
+    public MovieDto() {}
 
     public String getTitle() {
         return title;

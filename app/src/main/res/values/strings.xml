@@ -8,4 +8,7 @@
     <string name="todo">TODO</string>
     <string name="imdbid">imdbID</string>
     <string name="type">type</string>
+    <string name="search">search</string>
+    <string name="add">Add</string>
+    <string name="no_result_s_found">No result(s) found</string>
 </resources>

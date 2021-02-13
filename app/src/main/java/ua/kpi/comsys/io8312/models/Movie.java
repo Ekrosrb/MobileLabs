@@ -82,7 +82,6 @@ public class Movie {
     public int getPosterId(){
         try {
             String str = poster.split("\\.")[0].toLowerCase();
-            System.out.println(str);
             Field field = R.drawable.class.getDeclaredField(str);
             return field.getInt(field);
         } catch (NoSuchFieldException e) {

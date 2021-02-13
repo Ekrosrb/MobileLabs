@@ -3,7 +3,7 @@
 by Ilnytsky Vladyslav IO-83  
 
 ### Last version ###  
-https://drive.google.com/file/d/1yzuPQUyRuySKLEd6vAv_8ipArk8vlrF6/view?usp=sharing
+https://drive.google.com/file/d/1wDkD9NtCowJoVWkc2IH7Bj8nbSuHV1A0/view?usp=sharing  
   
 ## Project main/source directories ##  
   
@@ -59,5 +59,34 @@ XML:
 list_item - вид одной вкладки с фильмом.  
 lab3_fragment - вкладка с 3 лабораторной.  
   
-Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/1eaea20c1b2fedd16fb752bea9cd619daa5cec29    
+Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/1eaea20c1b2fedd16fb752bea9cd619daa5cec29  
+
+## Lab 4 ##
+  
+Добавлен activity AddMovieActivity для добавления элементов в список.  
+Добавлен activity MovieDetailInfoActivity для отображения подробной информации о фильме.  
+Добавлена поисковая строка для фильтрации элементов в списке.  
+Добавлено диалоговое окно для удаления элемента.  
+  
+Классы:  
+  
+Global - глобальные переменные для передачи между activities (самый простой и удобный способ).  
+MovieFilter - внутренний класс в MovieAdapter для фильтрации элементов в списке.  
+  
+XML:  
+  
+activity_add_movie - внешний вид складки для добавления элементов.  
+activity_item_all_info - внешний вид вкладки с информацией о фильме.  
+  
+Существенные модификации:  
+  
+Lab3Fragment - добавлено много обработчиков событий, а так же исправлен алгоритм загрузки вкладки.  
+MovieAdapter - добавлен внутренний класс и код для фильтрации элементов списка, а так же событие отображения сообщения в случае отсутствия совпадений.  
+MyFileReader - добавлена возможность добавлять и удалять элементы в файл. (После перезапуска приложения все добавленные элементы списка остаются).  
+  
+Ссылка на коммит:  
+  
+Для отображения диалогового окна для удаления элемента, нужно использовать долгое нажатие на этот элемент.  
+  
+Для отображения детальной информации об элементе, нужно нажать на этот элемент.  
   

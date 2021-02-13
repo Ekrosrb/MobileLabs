@@ -1,25 +1,37 @@
 package ua.kpi.comsys.io8312.utils;
 
 import android.content.Context;
+import android.util.JsonReader;
 
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.List;
 
+import ua.kpi.comsys.io8312.dto.MovieDto;
+import ua.kpi.comsys.io8312.models.Movie;
+import ua.kpi.comsys.io8312.models.MovieInfo;
 import ua.kpi.comsys.io8312.models.Search;
 
 public class MyFileReader {
 
     private Search search;
     private final Context context;
-
+    private final String fileName;
     public MyFileReader(Context context){
         this.context = context;
+        fileName = "MovieList.txt";
     }
 
     public String getFilmJson() {
@@ -29,10 +41,11 @@ public class MyFileReader {
     public void read(){
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
-                    context.openFileInput("MovieList.txt")));
+                    context.openFileInput(fileName)));
             String json = br.readLine();
             br.close();
             search = new GsonBuilder().create().fromJson(json, Search.class);
+            search.toMovieDtoArray();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -42,15 +55,82 @@ public class MyFileReader {
 
     public void init(){
         try {
+            if(!isFilePresent(fileName)) {
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+                        context.openFileOutput("MovieList.txt", Context.MODE_PRIVATE)));
+                bw.write(getFilmJson());
+                bw.close();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public MovieInfo getDetailInformation(String imdbID){
+        try {
+            if(!imdbID.isEmpty() && !imdbID.equals("none")) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(
+                        context.getAssets().open(imdbID + ".txt")));
+                String json = br.readLine();
+                br.close();
+                return new GsonBuilder().create().fromJson(json, MovieInfo.class);
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void write(MovieDto movieDto){
+        try {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
                     context.openFileOutput("MovieList.txt", Context.MODE_PRIVATE)));
-            bw.write(getFilmJson());
+            List<Movie> movies = search.getSearch();
+            movies.add(new Movie(movieDto.getTitle(),
+                    movieDto.getYear(),
+                    movieDto.getImdbID(),
+                    movieDto.getType(),
+                    ""));
+            search.setSearch(movies);
+            bw.write(new GsonBuilder().create().toJson(search));
             bw.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void delete(String title){
+        try {
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+                    context.openFileOutput("MovieList.txt", Context.MODE_PRIVATE)));
+            List<Movie> movies = search.getSearch();
+            for(Movie m: movies){
+                if(m.getTitle().equals(title)){
+                    movies.remove(m);
+                    break;
+                }
+            }
+            search.setSearch(movies);
+            bw.write(new GsonBuilder().create().toJson(search));
+            bw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean isFilePresent(String fileName) {
+        String path = context.getFilesDir() + "/" + fileName;
+        File file = new File(path);
+        return file.exists();
     }
 
     public Search getSearch() {

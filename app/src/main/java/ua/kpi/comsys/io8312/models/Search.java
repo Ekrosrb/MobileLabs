@@ -1,5 +1,6 @@
 package ua.kpi.comsys.io8312.models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -9,23 +10,26 @@ import ua.kpi.comsys.io8312.dto.MovieDto;
 
 public class Search {
     @SerializedName("Search")
-    private Movie[] search;
-
+    private List<Movie> search;
+    @Expose(serialize = false, deserialize = false)
+    private List<MovieDto> movieDtos;
     public Search() {}
 
-    public Search(Movie[] search) {
+    public Search(List<Movie> search) {
         this.search = search;
+        toMovieDtoArray();
     }
 
-    public Movie[] getSearch() {
+    public List<Movie> getSearch() {
         return search;
     }
 
-    public void setSearch(Movie[] search) {
+    public void setSearch(List<Movie> search) {
         this.search = search;
+        toMovieDtoArray();
     }
 
-    public List<MovieDto> toMovieDtoArray(){
+    public void toMovieDtoArray(){
         List<MovieDto> movieDtos = new ArrayList<>();
         for(Movie movie: search){
             String title = movie.getTitle();
@@ -41,6 +45,10 @@ public class Search {
             );
             movieDtos.add(movieDto);
         }
+        this.movieDtos =  movieDtos;
+    }
+
+    public List<MovieDto> getMovieDtos() {
         return movieDtos;
     }
 }

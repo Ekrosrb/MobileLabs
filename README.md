@@ -16,6 +16,10 @@ app/src/main/res
   
 Ссылка на комит: https://github.com/Ekrosrb/MobileLabs/commit/7f1bf836463cf24b8059348fae2fe49d026f38e1  
   
+Ссылка на коммит с исправлением (случайные значения затрудняли проверку на корректную работу программы, т.е числовые значения в разных заданиях при выводе не соответствовали друг другу, так как для следующего задания случайные значения оценок генерировались заново):  
+  
+https://github.com/Ekrosrb/MobileLabs/commit/e0c4b147ce9dbc1f6a916cc3989a61d92d23c547  
+  
 ## Lab 1.2 ##
   
 app/src/main/java/ua.kpi.comsys.io8312/playground/  

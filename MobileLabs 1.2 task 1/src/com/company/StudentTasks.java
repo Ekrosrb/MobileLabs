@@ -27,8 +27,7 @@ public class StudentTasks {
             return hashStudents;
         }
         //Задание 2
-        public Map<String, Map<String, Integer[]>> getAllStudentsRatingByGroup() {
-            Map<String, List<String>> studentsMap = getStudentsMapByGroup();
+        public Map<String, Map<String, Integer[]>> getAllStudentsRatingByGroup(Map<String, List<String>> studentsMap) {
 
             Map<String, Map<String, Integer[]>> studentsRating = new HashMap<>();
 
@@ -42,8 +41,7 @@ public class StudentTasks {
             return studentsRating;
         }
         //задание 3
-        public Map<String, Map<String, Integer>> getAllStudentsRatingSum(){
-            Map<String, Map<String, Integer[]>> studentsRating = getAllStudentsRatingByGroup();
+        public Map<String, Map<String, Integer>> getAllStudentsRatingSum(Map<String, Map<String, Integer[]>> studentsRating){
             Map<String, Map<String, Integer>> studentsRatingSum = new HashMap<>();
 
             studentsRating.forEach((group, students) -> {
@@ -60,8 +58,7 @@ public class StudentTasks {
             return studentsRatingSum;
         }
     //задание 4
-    public Map<String, Double> getAllGroupRatingAverage(){
-        Map<String, Map<String, Integer>> studentsRating = getAllStudentsRatingSum();
+    public Map<String, Double> getAllGroupRatingAverage(Map<String, Map<String, Integer>> studentsRating){
         Map<String, Double> groupRatingSum = new HashMap<>();
 
         studentsRating.forEach((group, students) -> {
@@ -79,8 +76,7 @@ public class StudentTasks {
         return groupRatingSum;
     }
     //задание 5
-    public Map<String, List<String>> getAllStudentsPassRating(){
-            Map<String, Map<String, Integer>> studentsRating = getAllStudentsRatingSum();
+    public Map<String, List<String>> getAllStudentsPassRating(Map<String, Map<String, Integer>> studentsRating){
             Map<String, List<String>> groupPassingStudents = new HashMap<>();
             studentsRating.forEach((group, students) ->{
                 List<String> passingStudents = new ArrayList<>();
@@ -107,19 +103,31 @@ public class StudentTasks {
     public static void main(String[] args) {
         //Экземпляр класса, вызов методов
         StudentTasks tasks = new StudentTasks();
-        tasks.printStudentsMapByGroup();
-        tasks.printAllStudentsRatingByGroup();
-        tasks.printAllStudentRating();
-        tasks.printAllGroupRatingAverage();
-        tasks.printPassingStudents();
+
+        Map<String, List<String>> studentsMapByGroup = tasks.getStudentsMapByGroup();
+
+        Map<String, Map<String, Integer[]>> allStudentsRatingByGroup =
+                tasks.getAllStudentsRatingByGroup(studentsMapByGroup);
+
+        Map<String, Map<String, Integer>> allStudentsRatingSum =
+                tasks.getAllStudentsRatingSum(allStudentsRatingByGroup);
+
+        Map<String, Double> allGroupRatingAverage = tasks.getAllGroupRatingAverage(allStudentsRatingSum);
+
+        Map<String, List<String>> allStudentsPassRating = tasks.getAllStudentsPassRating(allStudentsRatingSum);
+
+
+        tasks.printStudentsMapByGroup(studentsMapByGroup);
+        tasks.printAllStudentsRatingByGroup(allStudentsRatingByGroup);
+        tasks.printAllStudentRating(allStudentsRatingSum);
+        tasks.printAllGroupRatingAverage(allGroupRatingAverage);
+        tasks.printPassingStudents(allStudentsPassRating);
     }
 
 
     //Дальше методы для вывода в консоль
 
-    public void printStudentsMapByGroup(){
-        Map<String, List<String>> studentsByGroup = getStudentsMapByGroup();
-
+    public void printStudentsMapByGroup(Map<String, List<String>> studentsByGroup){
         System.out.println("Задание 1\n{");
         for(String group: studentsByGroup.keySet()){
             StringBuilder groupString = new StringBuilder(" " + group + "=[");
@@ -132,8 +140,7 @@ public class StudentTasks {
         System.out.println("}");
     }
 
-    public void printAllStudentsRatingByGroup(){
-        Map<String, Map<String, Integer[]>> studentsRating = getAllStudentsRatingByGroup();
+    public void printAllStudentsRatingByGroup(Map<String, Map<String, Integer[]>> studentsRating){
 
         System.out.println("Задание 2\n{");
 
@@ -150,8 +157,7 @@ public class StudentTasks {
         System.out.println("}");
     }
 
-    public void printAllStudentRating(){
-        Map<String, Map<String, Integer>> studentsRating = getAllStudentsRatingSum();
+    public void printAllStudentRating(Map<String, Map<String, Integer>> studentsRating){
 
         System.out.println("Задание 3\n{");
 
@@ -167,13 +173,13 @@ public class StudentTasks {
         System.out.println("}");
     }
 
-    public void printAllGroupRatingAverage(){
+    public void printAllGroupRatingAverage(Map<String, Double> ratingAverage){
         System.out.println("Задание 4");
-        System.out.println(getAllGroupRatingAverage().toString());
+        System.out.println(ratingAverage.toString());
     }
 
-    public void printPassingStudents(){
+    public void printPassingStudents(Map<String, List<String>> passRating){
         System.out.println("Задание 5");
-        System.out.println(getAllStudentsPassRating().toString());
+        System.out.println(passRating.toString());
     }
 }

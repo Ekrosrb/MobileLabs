@@ -8,19 +8,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import java.util.ArrayList;
-
 import ua.kpi.comsys.io8312.R;
 import ua.kpi.comsys.io8312.activities.AddMovieActivity;
 import ua.kpi.comsys.io8312.activities.MovieDetailInfoActivity;
@@ -53,8 +48,7 @@ public class Lab3Fragment extends Fragment {
         super.onResume();
         Activity a = getActivity();
         ImageView addIcon = a.findViewById(R.id.add_icon_id);
-
-        ListView movieList = a.findViewById(R.id.moviesList_id);
+        ListView movieList = a.findViewById(R.id.movieList_id);
         search = a.findViewById(R.id.search_movie_id);
         TextView noResultsMessage = a.findViewById(R.id.no_results_found_message_id);
 
@@ -101,8 +95,10 @@ public class Lab3Fragment extends Fragment {
                 }
             };
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-            builder.setMessage("Are you sure to delete this?").setPositiveButton("Yes", dialogClickListener)
-                    .setNegativeButton("No", dialogClickListener).show();
+            builder.setMessage("Are you sure to delete this?")
+                    .setPositiveButton("Yes", dialogClickListener)
+                    .setNegativeButton("No", dialogClickListener)
+                    .show();
             return true;
         });
 

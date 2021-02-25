@@ -21,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         tabLayout.addTab(tabLayout.newTab().setText("Lab1"));
         tabLayout.addTab(tabLayout.newTab().setText("Lab2"));
-        tabLayout.addTab(tabLayout.newTab().setText("lab3"));
+        tabLayout.addTab(tabLayout.newTab().setText("Lab3/4"));
+        tabLayout.addTab(tabLayout.newTab().setText("Lab5"));
         tabLayout.getTabAt(0).setIcon(R.drawable.first_icon);
         tabLayout.getTabAt(1).setIcon(R.drawable.second_icon);
         tabLayout.getTabAt(2).setIcon(R.drawable.third_icon);
+        tabLayout.getTabAt(3).setIcon(R.drawable.fourth_icon);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         LabAdapter adapter = new LabAdapter(this, getSupportFragmentManager(),
                 tabLayout.getTabCount());

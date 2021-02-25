@@ -111,5 +111,5 @@ ImageList - класс хранит элементы списка (ImageItem).
 lab5_fragment.xml - размещение компонентов в 4 вкладке.  
 image_manager_list_item.xml - пустые формы для вставки изображений (1 элемент списка, 6 изображений за шаблоном).  
   
-Ссылка на коммит: 
+Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/824f456b666f033f8e0046c2108a9bf84f5b6345  
   

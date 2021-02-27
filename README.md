@@ -3,7 +3,12 @@
 by Ilnytsky Vladyslav IO-83  
 
 ### Last version ###  
+  
+Лабораторные 1-5:  
 https://drive.google.com/file/d/1P_VecuJKICN1quRu1Ok9izjhsarXcuc1/view?usp=sharing  
+  
+Лабораторная 6:  
+https://drive.google.com/file/d/1arvGgIfXZa6l5akO0SlGVOM0E0B-NB_n/view?usp=sharing  
   
 ## Project main/source directories ##  
   
@@ -137,6 +142,5 @@ Async, AsyncImages, AsyncMovieInfo, AsyncMoviesInfo - классы для отп
   
 progress_animation.xml - анимация при загрузке изображения.  
   
-Ссылка на коммит: 
-
+Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/310c287a101186558c95eb94d1c4579f7c3d1e68  
   

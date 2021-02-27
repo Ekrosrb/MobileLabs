@@ -1,9 +1,7 @@
 package ua.kpi.comsys.io8312.fragments;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import ua.kpi.comsys.io8312.R;
 import ua.kpi.comsys.io8312.adapters.ImageAdapter;
+import ua.kpi.comsys.io8312.net.Async;
 import ua.kpi.comsys.io8312.utils.Global;
-
-import static android.app.Activity.RESULT_OK;
 
 public class Lab5Fragment extends Fragment {
 
     private ImageAdapter adapter;
-    private static final int PICK_IMAGE = 100;
+//    private static final int PICK_IMAGE = 100;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -35,25 +32,29 @@ public class Lab5Fragment extends Fragment {
         Activity a = getActivity();
         RecyclerView imageList = a.findViewById(R.id.imagesList_id);
         ImageButton button = a.findViewById(R.id.open_gallery_button_id);
-        button.setOnClickListener(v -> {
-            Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-            startActivityForResult(gallery, PICK_IMAGE);
-        });
+        button.setVisibility(View.INVISIBLE);
+//        button.setOnClickListener(v -> {
+//            Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+//            startActivityForResult(gallery, PICK_IMAGE);
+//        });
         if(adapter == null) {
             adapter = new ImageAdapter(getContext(), Global.images, a);
         }else{
             adapter.setActivity(a);
         }
         imageList.setAdapter(adapter);
+
+        Async.getImages(adapter);
+
         imageList.invalidate();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
-            Global.images.addImage(data.getData());
-            adapter.notifyDataSetChanged();
-        }
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data){
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+//            Global.images.addImage(data.getData());
+//            adapter.notifyDataSetChanged();
+//        }
+//    }
 }

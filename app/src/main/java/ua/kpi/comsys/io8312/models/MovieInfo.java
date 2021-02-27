@@ -2,48 +2,42 @@ package ua.kpi.comsys.io8312.models;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.lang.reflect.Field;
-
-import ua.kpi.comsys.io8312.R;
-
 public class MovieInfo {
     @SerializedName("Title")
-    private String title;
+    private final String title;
     @SerializedName("Year")
-    private String year;
+    private final String year;
     @SerializedName("Rated")
-    private String rated;
+    private final String rated;
     @SerializedName("Released")
-    private String released;
+    private final String released;
     @SerializedName("Runtime")
-    private String runtime;
+    private final String runtime;
     @SerializedName("Genre")
-    private String genre;
+    private final String genre;
     @SerializedName("Director")
-    private String director;
+    private final String director;
     @SerializedName("Writer")
-    private String writer;
+    private final String writer;
     @SerializedName("Actors")
-    private String actors;
+    private final String actors;
     @SerializedName("Plot")
-    private String plot;
+    private final String plot;
     @SerializedName("Language")
-    private String language;
+    private final String language;
     @SerializedName("Country")
-    private String country;
+    private final String country;
     @SerializedName("Awards")
-    private String awards;
+    private final String awards;
     @SerializedName("Poster")
-    private String poster;
-    private String imdbRating;
-    private String imdbVotes;
-    private String imdbID;
+    private final String poster;
+    private final String imdbRating;
+    private final String imdbVotes;
+    private final String imdbID;
     @SerializedName("Type")
-    private String type;
+    private final String type;
     @SerializedName("Production")
-    private String production;
-
-    public MovieInfo() { }
+    private final String production;
 
     public MovieInfo(String title, String year, String rated, String released, String runtime,
                      String genre, String director, String writer, String actors, String plot,
@@ -146,17 +140,5 @@ public class MovieInfo {
 
     public String getProduction() {
         return production;
-    }
-
-    public int getPosterId(){
-        try {
-            String str = poster.split("\\.")[0].toLowerCase();
-            Field field = R.drawable.class.getDeclaredField(str);
-            return field.getInt(field);
-        } catch (NoSuchFieldException e) {
-            return R.drawable.third_icon;
-        } catch (IllegalAccessException e) {
-            return R.drawable.third_icon;
-        }
     }
 }

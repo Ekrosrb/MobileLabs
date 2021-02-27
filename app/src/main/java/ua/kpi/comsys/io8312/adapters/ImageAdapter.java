@@ -82,6 +82,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
             if((uri = item.get(i)) != null) {
                 Picasso.with(inflater.getContext())
                         .load(uri).resize((int) sizeW[i], sizeH[i]).centerInside()
+                        .placeholder(R.drawable.progress_animation)
                         .into(holder.imageViews[i]);
                 holder.imageViews[i].setBackgroundColor(Color.GRAY);
                 LayoutParams layoutParams = new LinearLayout.LayoutParams((int) sizeW[i], sizeH[i]);

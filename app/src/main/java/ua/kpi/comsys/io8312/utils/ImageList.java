@@ -14,6 +14,11 @@ public class ImageList {
         images.add(new ImageItem());
     }
 
+    public void clear(){
+        images.clear();
+        images.add(new ImageItem());
+    }
+
     public void addImage(Uri image){
         if(images.get(images.size()-1).size() == 6){
             images.add(new ImageItem());

@@ -1,14 +1,17 @@
 package ua.kpi.comsys.io8312.activities;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
 import ua.kpi.comsys.io8312.R;
 import ua.kpi.comsys.io8312.models.MovieInfo;
-import ua.kpi.comsys.io8312.utils.Global;
+import ua.kpi.comsys.io8312.net.Async;
 
 public class MovieDetailInfoActivity extends AppCompatActivity {
 
@@ -28,7 +31,6 @@ public class MovieDetailInfoActivity extends AppCompatActivity {
     private ImageView poster;
     private TextView imdbRating;
     private TextView imdbVotes;
-    private TextView imdbID;
     private TextView type;
     private TextView production;
 
@@ -37,7 +39,7 @@ public class MovieDetailInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_all_info);
 
-        String imdb = getIntent().getStringExtra("imdb");
+        String imdb = getIntent().getStringExtra("imdbID");
 
         title = findViewById(R.id.title_info_id);
         year = findViewById(R.id.year_info_id);
@@ -55,12 +57,15 @@ public class MovieDetailInfoActivity extends AppCompatActivity {
         poster = findViewById(R.id.poster_info_id);
         imdbRating = findViewById(R.id.imdb_rating_info_id);
         imdbVotes = findViewById(R.id.imdb_votes_info_id);
-        imdbID = findViewById(R.id.imdb_info_id);
         type = findViewById(R.id.type_info_id);
         production = findViewById(R.id.production_info_id);
 
-        MovieInfo info = Global.fileReader.getDetailInformation(imdb);
+        Async.getMovieInfo(imdb, this);
 
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void setInfo(MovieInfo info){
         title.setText(info.getTitle());
         year.setText("Year:    " + info.getYear());
         rated.setText("Rated:    " + info.getRated());
@@ -77,10 +82,12 @@ public class MovieDetailInfoActivity extends AppCompatActivity {
         country.setText("Country:    " + info.getCountry());
         awards.setText("Awards:    " + info.getAwards());
 
-        poster.setImageResource(info.getPosterId());
+        Picasso.with(getApplicationContext())
+                .load(info.getPoster()).resize(300, 300).centerInside()
+                .into(poster);
+
         imdbRating.setText("imdb rating:    " + info.getImdbRating() + "/10");
         imdbVotes.setText("imdb voted:    " + info.getImdbVotes());
-        imdbID.setText("imdbID:    " + info.getImdbID());
 
         type.setText("Type:    " + info.getType());
         production.setText("Production:    " + info.getProduction());

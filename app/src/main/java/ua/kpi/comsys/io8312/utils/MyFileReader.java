@@ -1,13 +1,7 @@
 package ua.kpi.comsys.io8312.utils;
 
 import android.content.Context;
-import android.util.JsonReader;
-
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,14 +10,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.List;
 
 import ua.kpi.comsys.io8312.dto.MovieDto;
 import ua.kpi.comsys.io8312.models.Movie;
 import ua.kpi.comsys.io8312.models.MovieInfo;
 import ua.kpi.comsys.io8312.models.Search;
-
+@Deprecated
 public class MyFileReader {
 
     private Search search;

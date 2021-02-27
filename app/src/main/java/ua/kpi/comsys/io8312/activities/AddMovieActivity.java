@@ -7,9 +7,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ua.kpi.comsys.io8312.R;
-import ua.kpi.comsys.io8312.dto.MovieDto;
-import ua.kpi.comsys.io8312.utils.Global;
-
+@Deprecated
 public class AddMovieActivity extends AppCompatActivity {
     EditText title;
     EditText year;
@@ -25,15 +23,15 @@ public class AddMovieActivity extends AppCompatActivity {
     }
 
     public void addMovie(View view) {
-        MovieDto movieDto = new MovieDto(
-                title.getText().toString(),
-                year.getText().toString(), "",
-                type.getText().toString(),
-                R.drawable.third_icon);
+//        MovieDto movieDto = new MovieDto(
+//                title.getText().toString(),
+//                year.getText().toString(), "",
+//                type.getText().toString(),
+//                R.drawable.third_icon);
 
-        Global.adapter.add(movieDto);
-        Global.adapter.notifyDataSetChanged();
-        Global.fileReader.write(movieDto);
+//        Global.adapter.add(movieDto);
+//        Global.adapter.notifyDataSetChanged();
+//        Global.fileReader.write(movieDto);
         finish();
     }
 }

@@ -24,6 +24,7 @@ import ua.kpi.comsys.io8312.R;
 import ua.kpi.comsys.io8312.dto.MovieDto;
 import ua.kpi.comsys.io8312.utils.Global;
 
+@Deprecated
 public class MovieAdapter extends ArrayAdapter<MovieDto> implements Filterable, Serializable {
     private final LayoutInflater inflater;
     private final int layout;
@@ -66,14 +67,14 @@ public class MovieAdapter extends ArrayAdapter<MovieDto> implements Filterable, 
         ImageView posterView = view.findViewById(R.id.poster_id);
         TextView titleView = view.findViewById(R.id.title_id);
         TextView yearView = view.findViewById(R.id.year_id);
-        TextView imdbView = view.findViewById(R.id.imdb_id);
+//        TextView imdbView = view.findViewById(R.id.imdb_id);
         TextView typeView = view.findViewById(R.id.type_id);
 
         MovieDto movie = movies.get(position);
         posterView.setImageResource(movie.getPoster());
         titleView.setText(movie.getTitle());
         yearView.setText(movie.getYear());
-        imdbView.setText(movie.getImdbID());
+//        imdbView.setText(movie.getImdbID());
         typeView.setText(movie.getType());
 
         if(parent.getResources().getConfiguration().orientation ==

@@ -1,23 +1,26 @@
-package ua.kpi.comsys.io8312.dto;
+package ua.kpi.comsys.io8312.models;
 
-import java.io.Serializable;
-@Deprecated
-public class MovieDto implements Serializable {
+import com.google.gson.annotations.SerializedName;
+
+public class MovieModel {
+    @SerializedName("Title")
     private  String title;
+    @SerializedName("Year")
     private String year;
+    @SerializedName("imdbID")
     private String imdbID;
+    @SerializedName("Type")
     private String type;
-    private int poster;
+    @SerializedName("Poster")
+    private String poster;
 
-    public MovieDto(String title, String year, String imdbID, String type, int poster) {
+    public MovieModel(String title, String year, String imdbID, String type, String poster) {
         this.title = title;
         this.year = year;
         this.imdbID = imdbID;
         this.type = type;
         this.poster = poster;
     }
-
-    public MovieDto() {}
 
     public String getTitle() {
         return title;
@@ -51,11 +54,11 @@ public class MovieDto implements Serializable {
         this.type = type;
     }
 
-    public int getPoster() {
+    public String getPoster() {
         return poster;
     }
 
-    public void setPoster(int poster) {
+    public void setPoster(String poster) {
         this.poster = poster;
     }
 }

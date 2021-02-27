@@ -17,16 +17,17 @@
 
     </SearchView>
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movieList_id"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_movie_id" >
 
-    </ListView>
+    </androidx.recyclerview.widget.RecyclerView>
 
     <ImageView
         android:id="@+id/add_icon_id"
@@ -45,7 +46,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/no_result_s_found"
         android:textSize="18sp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_movie_id" />

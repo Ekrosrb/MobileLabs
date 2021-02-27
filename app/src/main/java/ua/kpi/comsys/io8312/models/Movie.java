@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.lang.reflect.Field;
 
 import ua.kpi.comsys.io8312.R;
-
+@Deprecated
 public class Movie {
     @SerializedName("Title")
     private  String title;

@@ -7,16 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ua.kpi.comsys.io8312.dto.MovieDto;
-
+@Deprecated
 public class Search {
     @SerializedName("Search")
     private List<Movie> search;
+    private int totalResults;
+    @SerializedName("Response")
+    private boolean response;
     @Expose(serialize = false, deserialize = false)
     private List<MovieDto> movieDtos;
     public Search() {}
 
-    public Search(List<Movie> search) {
+    public Search(List<Movie> search, int totalResults, boolean response) {
         this.search = search;
+        this.totalResults = totalResults;
+        this.response = response;
         toMovieDtoArray();
     }
 
@@ -51,4 +56,13 @@ public class Search {
     public List<MovieDto> getMovieDtos() {
         return movieDtos;
     }
+
+    public int getTotalResults() {
+        return totalResults;
+    }
+
+    public boolean isResponse() {
+        return response;
+    }
+
 }

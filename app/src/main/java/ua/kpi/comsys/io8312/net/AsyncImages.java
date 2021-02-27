@@ -53,6 +53,4 @@ public class AsyncImages extends AsyncTask<String, String, JSONObject> {
             view.notifyDataSetChanged();
         }catch (JSONException ignored){}
     }
-
 }
-

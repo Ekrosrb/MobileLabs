@@ -55,5 +55,4 @@ public class AsyncMoviesInfo extends AsyncTask<String, String, JSONObject> {
             }
         }catch (JSONException ignored){}
     }
-
 }

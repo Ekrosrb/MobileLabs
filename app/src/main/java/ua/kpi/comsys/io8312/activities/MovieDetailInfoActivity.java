@@ -2,6 +2,7 @@ package ua.kpi.comsys.io8312.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class MovieDetailInfoActivity extends AppCompatActivity {
     private TextView imdbVotes;
     private TextView type;
     private TextView production;
+    private TextView noDataMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,37 +61,47 @@ public class MovieDetailInfoActivity extends AppCompatActivity {
         imdbVotes = findViewById(R.id.imdb_votes_info_id);
         type = findViewById(R.id.type_info_id);
         production = findViewById(R.id.production_info_id);
+        noDataMessage = findViewById(R.id.no_connection_info_message);
 
         Async.getMovieInfo(imdb, this);
 
     }
 
     @SuppressLint("SetTextI18n")
-    public void setInfo(MovieInfo info){
-        title.setText(info.getTitle());
-        year.setText("Year:    " + info.getYear());
-        rated.setText("Rated:    " + info.getRated());
-        released.setText("Released:    " + info.getReleased());
-        runtime.setText("Runtime:    " + info.getRuntime());
+    public void setInfo(MovieInfo info, boolean isConnection){
+        if(!isConnection && info == null){
+            noDataMessage.setText(R.string.no_internet_connection);
+            noDataMessage.setVisibility(View.VISIBLE);
+        }else if(info == null){
+            noDataMessage.setText("could not find information on this movie");
+            noDataMessage.setVisibility(View.VISIBLE);
+        }else {
+            noDataMessage.setVisibility(View.INVISIBLE);
+            title.setText(info.getTitle());
+            year.setText("Year:    " + info.getYear());
+            rated.setText("Rated:    " + info.getRated());
+            released.setText("Released:    " + info.getReleased());
+            runtime.setText("Runtime:    " + info.getRuntime());
 
-        genre.setText("Genre:    " + info.getGenre());
-        director.setText("Director:    " + info.getDirector());
-        writer.setText("Writer:    " + info.getWriter());
-        actors.setText("Actors:    " + info.getActors());
+            genre.setText("Genre:    " + info.getGenre());
+            director.setText("Director:    " + info.getDirector());
+            writer.setText("Writer:    " + info.getWriter());
+            actors.setText("Actors:    " + info.getActors());
 
-        plot.setText("Plot:    " + info.getPlot());
-        language.setText("Language:    " + info.getLanguage());
-        country.setText("Country:    " + info.getCountry());
-        awards.setText("Awards:    " + info.getAwards());
+            plot.setText("Plot:    " + info.getPlot());
+            language.setText("Language:    " + info.getLanguage());
+            country.setText("Country:    " + info.getCountry());
+            awards.setText("Awards:    " + info.getAwards());
 
-        Picasso.with(getApplicationContext())
-                .load(info.getPoster()).resize(300, 300).centerInside()
-                .into(poster);
+            Picasso.with(getApplicationContext())
+                    .load(info.getPoster()).resize(300, 300).centerInside()
+                    .into(poster);
 
-        imdbRating.setText("imdb rating:    " + info.getImdbRating() + "/10");
-        imdbVotes.setText("imdb voted:    " + info.getImdbVotes());
+            imdbRating.setText("imdb rating:    " + info.getImdbRating() + "/10");
+            imdbVotes.setText("imdb voted:    " + info.getImdbVotes());
 
-        type.setText("Type:    " + info.getType());
-        production.setText("Production:    " + info.getProduction());
+            type.setText("Type:    " + info.getType());
+            production.setText("Production:    " + info.getProduction());
+        }
     }
 }

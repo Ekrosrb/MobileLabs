@@ -2,42 +2,53 @@ package ua.kpi.comsys.io8312.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MovieInfo {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.RealmClass;
+import io.realm.annotations.Required;
+
+@RealmClass
+public class MovieInfo extends RealmObject {
     @SerializedName("Title")
-    private final String title;
+    private String title;
     @SerializedName("Year")
-    private final String year;
+    private String year;
     @SerializedName("Rated")
-    private final String rated;
+    private String rated;
     @SerializedName("Released")
-    private final String released;
+    private String released;
     @SerializedName("Runtime")
-    private final String runtime;
+    private String runtime;
     @SerializedName("Genre")
-    private final String genre;
+    private String genre;
     @SerializedName("Director")
-    private final String director;
+    private String director;
     @SerializedName("Writer")
-    private final String writer;
+    private String writer;
     @SerializedName("Actors")
-    private final String actors;
+    private String actors;
     @SerializedName("Plot")
-    private final String plot;
+    private String plot;
     @SerializedName("Language")
-    private final String language;
+    private String language;
     @SerializedName("Country")
-    private final String country;
+    private String country;
     @SerializedName("Awards")
-    private final String awards;
+    private String awards;
     @SerializedName("Poster")
-    private final String poster;
-    private final String imdbRating;
-    private final String imdbVotes;
-    private final String imdbID;
+    private String poster;
+    private String imdbRating;
+    private String imdbVotes;
+    @PrimaryKey
+    @Required
+    private String imdbID;
     @SerializedName("Type")
-    private final String type;
+    private String type;
     @SerializedName("Production")
-    private final String production;
+    private String production;
+
+    public MovieInfo() {
+    }
 
     public MovieInfo(String title, String year, String rated, String released, String runtime,
                      String genre, String director, String writer, String actors, String plot,

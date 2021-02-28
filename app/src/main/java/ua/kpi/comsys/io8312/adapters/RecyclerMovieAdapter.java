@@ -78,6 +78,22 @@ public class RecyclerMovieAdapter extends RecyclerView.Adapter<RecyclerMovieAdap
         notifyDataSetChanged();
     }
 
+    public void update(List<MovieModel> movies, boolean isConnection){
+        if(movies.size() > 0){
+            this.movies.clear();
+            this.movies.addAll(movies);
+            noDataMessage.setVisibility(View.INVISIBLE);
+        }else{
+            this.movies.clear();
+            if(!isConnection){
+                noDataMessage.setText(R.string.no_internet_connection);
+            }else{
+                noDataMessage.setText(R.string.no_result_s_found);
+            }
+            noDataMessage.setVisibility(View.VISIBLE);
+        }
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getItemCount() {

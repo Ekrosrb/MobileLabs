@@ -2,17 +2,28 @@ package ua.kpi.comsys.io8312.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MovieModel {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.RealmClass;
+import io.realm.annotations.Required;
+
+@RealmClass
+public class MovieModel extends RealmObject {
     @SerializedName("Title")
     private  String title;
     @SerializedName("Year")
     private String year;
     @SerializedName("imdbID")
+    @PrimaryKey
+    @Required
     private String imdbID;
     @SerializedName("Type")
     private String type;
     @SerializedName("Poster")
     private String poster;
+
+    public MovieModel() {
+    }
 
     public MovieModel(String title, String year, String imdbID, String type, String poster) {
         this.title = title;

@@ -9,8 +9,8 @@ by Ilnytsky Vladyslav IO-83
 Лабораторные 1-5:  
 https://drive.google.com/file/d/1P_VecuJKICN1quRu1Ok9izjhsarXcuc1/view?usp=sharing  
   
-Лабораторная 6:  
-https://drive.google.com/file/d/1arvGgIfXZa6l5akO0SlGVOM0E0B-NB_n/view?usp=sharing  
+Лабораторная 6/7:  
+https://drive.google.com/file/d/1Q2ROr_oT__4YUZPRa8u1sM1nzigP1WDm/view?usp=sharing  
   
 ## Project main/source directories ##  
   

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -38,7 +39,8 @@ public class Lab5Fragment extends Fragment {
 //            startActivityForResult(gallery, PICK_IMAGE);
 //        });
         if(adapter == null) {
-            adapter = new ImageAdapter(getContext(), Global.images, a);
+            adapter = new ImageAdapter(getContext(), Global.images, a,
+                    a.findViewById(R.id.no_connection_message));
         }else{
             adapter.setActivity(a);
         }

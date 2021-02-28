@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
@@ -25,11 +27,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     private Activity activity;
     private final ImageList images;
     private final Point w = new Point();
-
-    public ImageAdapter(Context context, ImageList images, Activity activity){
+    private final TextView noConnectionMessage;
+    public ImageAdapter(Context context, ImageList images, Activity activity,  TextView noConnectionMessage){
         inflater = LayoutInflater.from(context);
         this.images = images;
         this.activity = activity;
+        this.noConnectionMessage = noConnectionMessage;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,6 +56,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     public void setActivity(Activity activity){
         this.activity = activity;
+    }
+
+    public void setNoConnectionMessageVisibility(int state){
+        noConnectionMessage.setVisibility(state);
     }
 
     @NonNull

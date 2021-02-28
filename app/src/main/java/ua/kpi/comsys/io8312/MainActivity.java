@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 import com.google.android.material.tabs.TabLayout;
 import java.util.Objects;
+
+import io.realm.Realm;
 import ua.kpi.comsys.io8312.adapters.LabAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,12 +19,13 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
+        Realm.init(this);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
         tabLayout.addTab(tabLayout.newTab().setText("Lab1"));
         tabLayout.addTab(tabLayout.newTab().setText("Lab2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Lab3/4"));
-        tabLayout.addTab(tabLayout.newTab().setText("Lab5"));
+        tabLayout.addTab(tabLayout.newTab().setText("Lab3/4/6/7"));
+        tabLayout.addTab(tabLayout.newTab().setText("Lab5/6/7"));
         tabLayout.getTabAt(0).setIcon(R.drawable.first_icon);
         tabLayout.getTabAt(1).setIcon(R.drawable.second_icon);
         tabLayout.getTabAt(2).setIcon(R.drawable.third_icon);

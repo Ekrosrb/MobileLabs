@@ -77,7 +77,7 @@ public class Lab3Fragment extends Fragment {
             }
         }
         if(search.getQuery().length() >= 3) {
-            Async.getMovies(query, recyclerMovieAdapter);
+            Async.getMovies(search.getQuery().toString(), recyclerMovieAdapter);
         }else{
             recyclerMovieAdapter.update(new ArrayList<>());
         }

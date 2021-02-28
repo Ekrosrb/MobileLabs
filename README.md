@@ -153,5 +153,5 @@ progress_animation.xml - анимация при загрузке изображ
 Для записи данных используется библиотека Realm.  
 Для сохранения и отображения изображений - Picasso.  
   
-Ссылка на коммит: 
+Ссылка на коммит: https://github.com/Ekrosrb/MobileLabs/commit/7f46136555f6618df1e95af090f4c8cd3e1dd4dd  
   

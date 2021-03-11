@@ -1,8 +1,14 @@
 package ua.kpi.comsys.io8312.playground;
 
+import android.annotation.SuppressLint;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
 public class TimeVI {
     private int hours;
@@ -39,13 +45,20 @@ public class TimeVI {
 
     @Override
     public String toString() {
-        return ((hours <= 9 || hours - 12 <= 9)?"0":"") +
-                ((hours >= 12)?(hours - 12 + ""):(hours)) + ":"
-                + ((minutes<=9)?"0" + minutes:minutes) + ":"
-                + ((seconds<=9)?"0" + seconds:seconds) +
-                ((hours > 0 && hours <= 12) ||
-                        ((hours <= 12) &&
-                                (hours != 0 || minutes != 0 || seconds != 0))?" AM":" RM");
+        String time = ((hours < 10)?"0":"") + hours + ":" + ((minutes < 10)?"0":"") + minutes + ":" + ((seconds < 10)?"0":"") + seconds;
+            @SuppressLint("SimpleDateFormat")
+            DateFormat df = new SimpleDateFormat("HH:mm:ss");
+            @SuppressLint("SimpleDateFormat")
+            DateFormat outputformat = new SimpleDateFormat("hh:mm:ss aa");
+            Date date = null;
+            String output = null;
+            try{
+                date= df.parse(time);
+                output = outputformat.format(date);
+            }catch(ParseException pe){
+                pe.printStackTrace();
+            }
+            return output;
     }
 
     public static TimeVI subTime(TimeVI time1, TimeVI time2){

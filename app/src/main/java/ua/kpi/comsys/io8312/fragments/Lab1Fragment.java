@@ -73,8 +73,8 @@ public class Lab1Fragment extends Fragment {
         String add1 = time1.addTime(time2).toString();
         String sub1 = time2.subTime(time1).toString();
 
-        String add2 = time1.addTime(time3, time4).toString();
-        String sub2 = time2.subTime(time3, time4).toString();
+        String add2 = TimeVI.addTime(time3, time4).toString();
+        String sub2 = TimeVI.subTime(time3, time4).toString();
 
         return new StringBuffer()
                 .append("Playground\n")

@@ -43,10 +43,12 @@ public class TimeVI {
                 ((hours >= 12)?(hours - 12 + ""):(hours)) + ":"
                 + ((minutes<=9)?"0" + minutes:minutes) + ":"
                 + ((seconds<=9)?"0" + seconds:seconds) +
-                (hours >= 12?" RM":" AM");
+                ((hours > 0 && hours <= 12) ||
+                        ((hours <= 12) &&
+                                (hours != 0 || minutes != 0 || seconds != 0))?" AM":" RM");
     }
 
-    public TimeVI subTime(TimeVI time1, TimeVI time2){
+    public static TimeVI subTime(TimeVI time1, TimeVI time2){
         int h = time1.hours - time2.hours;
         int m = time1.minutes - time2.minutes;
         int s = time1.seconds - time2.seconds;
@@ -65,7 +67,7 @@ public class TimeVI {
         return new TimeVI(h, m, s);
     }
 
-    public TimeVI addTime(TimeVI time1, TimeVI time2){
+    public static TimeVI addTime(TimeVI time1, TimeVI time2){
         int h = time1.hours + time2.hours;
         int m = time1.minutes + time2.minutes;
         int s = time1.seconds + time2.seconds;
